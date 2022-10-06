@@ -9,9 +9,15 @@ export interface IUser {
   username: string;
   classe: string;
   level: number;
-  password: string;
+  password?: string;
 }
 
 export interface IToken {
   token: string;
+}
+
+export interface IOrder {
+  id: number;
+  userId: number;
+  productsIds: number[];
 }
