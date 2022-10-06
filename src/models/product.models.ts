@@ -10,7 +10,7 @@ class ProductModel {
 
   async getProducts(): Promise<IProduct []> {
     const [allProducts] = await this.connection.execute(
-      'SELECT * FROM Products',
+      'SELECT * FROM Trybesmith.Products',
     );
     return allProducts as IProduct[];
   }
@@ -18,7 +18,7 @@ class ProductModel {
   async insertProducts(product: IProduct): Promise<IProduct> {
     const { name, amount } = product;
     const [{ insertId }] = await this.connection.execute<ResultSetHeader>(
-      'INSERT INTO Products (name, amount) VALUES (?,?)',
+      'INSERT INTO Trybesmith.Products (name, amount) VALUES (?,?)',
       [name, amount],
     );
     return { id: insertId, name, amount };
