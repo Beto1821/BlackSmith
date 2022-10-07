@@ -11,12 +11,12 @@ class UserController {
   };
 
   async login(req: Request, res: Response) {
-    console.log('Jessy cuica');
+    console.log('entrou controller');
     
     const { username, password } = req.body;
-    const token = await this.userService.login(username, password);
-    console.log(token);
-    return res.status(200).json({ token });
+    const login = await this.userService.login(username, password);
+    console.log(login);
+    return res.status(200).json({ login });
   }
 }
 
