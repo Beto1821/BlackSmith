@@ -14,9 +14,12 @@ class UserController {
     console.log('entrou controller');
     
     const { username, password } = req.body;
-    const login = await this.userService.login(username, password);
-    console.log(login);
-    return res.status(200).json({ login });
+    console.log(req.body);
+    
+    const user = await this.userService.login(username, password);
+    console.log(user);
+    
+    return res.status(200).json({ user });
   }
 }
 

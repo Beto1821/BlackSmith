@@ -23,7 +23,7 @@ class UserService {
     return { token };
   }
 
-  async login(username: string, password: string): Promise<IToken> {
+  login = async (username: string, password: string): Promise<IToken> => {
     console.log('entrou service');
     const log = await this.userModel.login(username, password);
     
@@ -35,7 +35,7 @@ class UserService {
     );
 
     return token as unknown as IToken;
-  }
+  };
 }
 
 export default UserService;
