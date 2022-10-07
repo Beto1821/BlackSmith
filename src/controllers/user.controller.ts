@@ -10,17 +10,17 @@ class UserController {
     return res.status(201).json(User);
   };
 
-  async login(req: Request, res: Response) {
+  login = async (req: Request, res: Response) => {
     console.log('entrou controller');
     
     const { username, password } = req.body;
     console.log(req.body);
     
-    const user = await this.userService.login(username, password);
-    console.log(user);
+    const token = await this.userService.login(username, password);
+    console.log(token);
     
-    return res.status(200).json({ user });
-  }
+    return res.status(200).json({ token });
+  };
 }
 
 export default UserController;
